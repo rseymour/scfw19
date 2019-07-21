@@ -1,0 +1,31 @@
+bpm 122
+
+d1 $ slow 8 $ n ("c'maj c'maj a4'min g3'maj") # s "supersaw" # voice 0.3 # attack 0.19 # release 3.4 # cutoff (range 500 5000 tri)
+
+d1 $ slow 8 $ n ("c'maj c'maj*8 a4'min g3'maj") # s "supersaw" # voice 0.2 # attack 0.29 # release 3.0 # cutoff (range 300 2000 tri)
+
+d1 $ slow 8 $ n ("f3'maj g3'maj f4'maj g3'maj") # s "supersaw" # voice 0.2 # attack 0.14 # release 3.0 # cutoff (range 300 2000 tri)
+
+d3 $ stack [s "50bd*4", s "<[~ 50cp ~ 50sd] {[~ 50cp 50sd],[~ 50cp ~ 50cp]} [~ 05sd ~ 05sd]>", s "[~ 05hc]*6" # n (run 2), "50ch*12" ] # gain 1.1
+
+d2 $ stack [s "{50bd*4, 50ch*12}"]
+
+
+
+d4$silence
+
+d4 $ sometimes (off 0.125 (+ n "<19>" ))
+$ whenmod 6 3 (|+ n "<12>") $ every 3 (const (n "f")) $ every 8 rev $ degrade
+$ n "[c d e f]*8"
+# s "supermandolin" # release 0.9 # delay 0.3333 # delayfb 0.1 # room 0.4
+
+xfadeIn 1 2 $ silence
+
+d4 $ s "v*32" # up (run 32) # cut "4"
+
+d3 $ jux (fast 2) $ slow 16 $ s "v*48" # up (run 32) # cut "5"
+
+hush
+
+
+d3 $ s "{50bd sn:3, ~ ~ hh*4}"

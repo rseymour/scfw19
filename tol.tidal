@@ -1,0 +1,48 @@
+
+bpm 114
+
+let a = n "{a2,cs3,e4,a4}*4?0.01"
+
+let e = n "{e2,b3,af4,e5}*4?0.05"
+
+let d = n "{d2,a3,fs4,d4}*2 [{d3,a3,fs4,d5}*4?0.25] {d3,a3,fs4,d5}"
+
+let ao = n "[a4?0.2 ~ [a5? b4] [<a6,d5,a5> ~] [a5 ~] a3]*1.3333"
+
+hush
+
+
+d1 $ n "{a3,cs4,e4,a5}*32" # s "supersaw" # gain (fast 4 $ range 0.6 0.9 sin)
+
+d2 $ slow 4 $ n "{a3,cs4,e4,<b4 a5>}*4 {d3,fs4,<b5 a5>}*2" # s "supersaw" # attack 1.3 # release 3.3 # gain 0.9
+
+d1 $ slow 4 $ n "{a3,cs4,e4,<b4 a5>}*4 {d3,fs4,<b5 a5>}*2" # s "superpiano" # cutoff (range 700 4000 tri) # gain 0.9 # delay 0.125 # delayfb 0.3
+
+d1 $ slow 2 $ slowcat [a,a,a,e,a,e,d,d] # s "superpiano" # attack 0.3 # release 6.3 # cutoff (range 490 6500 (fast 2 tri))
+
+d2 $ every 4 (const $ n "a5") $ every 3 (rev) $ every 4 (|+ n "<2>") $ whenmod 8 6 (|+ n "<7>") $ ao # s "supersquare" # attack 0.52 # release 1.97 # delay 0.124 # delayfb 0.1
+
+xfadeIn 2 2 $ silence
+
+d3 $ s "[05hc*3 05lc:4]*8" # gain 1.2 # cut "1" # cutoff 400
+
+d3 $ fast 2 $ off 0.325 (# up 7 )$ s "[05hc? 05lc:4?]*2" # gain 1.2 # cut "1"
+
+clutchIn 3 2 $ "[50bd [~ 50bd]]*2" # gain 1.0
+
+d3 $ every 4 rev $ "[50bd [~ 50bd]]*2" # gain 1.0
+
+d4 $ striate 3 $ s "[50cp ~ [05cp 50cp?] [~ 05cp]]" # gain 1.1
+
+d4 $ every 2 (# up 5) $ whenmod 8 4 (const (sound "~ <50cp 05sd> ~ [50rs*4]")) $ s "[[~] <05sd:3 05cp>]*4"
+# gain 1.2 # cut "2" # room 0.05
+
+hush
+
+d4 $ silence
+
+d3 $ silence
+
+d1 $ silence
+
+d2 $ silence
