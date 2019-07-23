@@ -1,0 +1,25 @@
+-- ok
+d2 $ stack [
+    s "[hc!3 [hc hc?0.8] hc!~ [hc/4 hc?/2]]*<1 1 1 2>" # cut 1
+    --,s "[[lb/16 cp/8] [sd [rs/3 rs/4 ~  rs/12]]]*2",
+    ,s "[~ [sn [rs/3 rs/4 ~  rs/12]]]*2"
+    --   ,s "bd bd"
+    ] # gain 1.2 # orbit 2
+
+-- breaks everything
+d2 $ stack [
+    s "[hc!3 [hc hc?0.8] hc!~ [hc/4 hc?/2]]*<1 1 1 2>" # cut 1
+    --,s "[[lb/16 cp/8] [sd [rs/3 rs/4 ~  rs/12]]]*2",
+    ,s "[~ [sn [rs/3 rs/4 ~  rs/12]]*2"
+    --   ,s "bd bd"
+    ] # gain 1.2 # orbit 2
+
+
+d2 $ s "bd bd bd bd"
+
+d2 $ stack [
+    s "[hc!3 [hc hc?0.8] hc!~ [hc/4 hc?/2]]*<1 1 1 2>" # cut 1
+    ,s "[~ [sn [rs/3 rs/4 ~  rs/12]]]*2"
+    ] # gain 1.2 # orbit 2
+
+
