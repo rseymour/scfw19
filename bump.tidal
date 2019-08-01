@@ -1,0 +1,106 @@
+bpm 124
+
+hush
+
+d6 $ jux (slow 3) $ slow 4 $ arp "thumbdown" $ n "b'min7*3" # s "superpiano" # cutoff (slow 3 $ range 200 20000 tri)
+   # orbit 5 # room 0.3 # size 0.4 # delay 0.7 # delayt 0.9
+
+d1 $ s "50bd*4 50bd*4 50bd ~" # gain 1.2
+
+d1 $ s "50bd*2" # gain 1.3
+
+d2 $ every 16 (striate 6 ) $ s "[50tb/8 [50sd,50hc/4]]*2" # gain 1.2
+
+d5 $ every 8 brak $ swingBy (choose [0.09, 0.29, 0.33, 0.19]) 16 $ s "50ch*16"
+
+d3 $ arp "<down down downup up>" $ n "e'min7*4" # s "supermandolin" # cutoff (slow 3 $ range 200 20000 tri)
+
+d3 $ jux (striate 2) $ arp "<down down downup up>" $ n "e'min7*4" # s "supermandolin" # cutoff (slow 3 $ range 200 20000 tri)
+
+d4 $ cat [ n "b3/4", n "b4 d5 ~" ] # s "supersquare" # cutoff (range 200 8000 (tri))
+
+xfadeIn 6 32 $ silence
+
+-- add me to mandolin
+ $ jux (striate 2)
+
+do
+  d3 $ n "e'min7*12" # s "supermandolin" # cutoff (slow 3 $ range 200 20000 tri)
+  d4 $ cat [ n "[e4 g3] ~ [e3 a3] ~", n "e3" ] # s "supersquare" # cutoff (range 200 8000 (tri))
+
+do
+  d3 $ n "a'min7*12" # s "supermandolin" # cutoff (slow 3 $ range 200 20000 tri)
+  d4 $ cat [ n "[g4 a3] ~ [a3 c4] [~ e4]", n "a3" ] # s "supersquare" # cutoff (range 200 8000 (tri))
+
+do
+  d3 $ every 2 brak $ n "b'min7*12" # s "supermandolin" # cutoff (slow 3 $ range 200 20000 tri)
+  d4 $ cat [ n "[b4 fs3] ~ [b3 c4] ~", n "b3 ~ [b4 fs4] b3" ] # s "supersquare" # cutoff (range 200 8000 (tri))
+
+  d3  $ (jux (slow  4 . (arp "up") )) $ n "e'min7*12" # s "supermandolin" # cutoff (slow 3 $ range 200 20000 tri) # orbit 2 # room 0.6 # size 0.3
+
+  d4 $ silence
+
+do
+  d3 $ every 3 (jux (slow  3 . (arp "up") )) $ n "e'min7*12" # s "supermandolin" # cutoff (slow 3 $ range 200 20000 tri) # orbit 2 # room 0.5 # size 0.2
+  d4 $ cat [ n "[e4 g3] ~ [e3 a3] ~", n "e3" ] # s "supersquare" # cutoff (range 200 8000 (tri))
+
+do
+  d3 $ every 2 (jux (slow 2)) $ every 3 (arp "down") $ n "a'min7*12" # s "supermandolin" # cutoff (slow 3 $ range 200 20000 tri)
+   # orbit 2 # room 0.5 # size 0.2
+  d4 $ cat [ n "[g4 a3] ~ [a3 c4] [~ e4]", n "a3" ] # s "supersquare" # cutoff (range 200 8000 (tri))
+
+do
+  d3 $ every 2 (jux (fast 2)) $ every 3 (arp "down") $ n "b'min7*12" # s "supermandolin" # cutoff (slow 3 $ range 200 20000 tri)
+   # orbit 2 # room 0.5 # size 0.2
+  d4 $ every 3 (|+ n "<12>") $ cat [ n "[b4 fs3] ~ [b3 c4] ~", n "b3 ~ [b4 fs4] b3" ] # s "supersquare" # cutoff (range 200 8000 (tri))
+
+  d3 $ silence
+
+  d4 $ silence
+
+  hush
+
+do
+  d1 $ silence
+  d3 $ every 2 (jux (fast 2)) $ every 3 (arp "down") $ n "b'min7*6" # s "supermandolin" # cutoff (slow 3 $ range 200 20000 tri)
+   # orbit 2 # room 0.5 # size 0.2
+  d4 $ every 3 (|+ n "<12>") $ cat [ n "[b4 fs3] ~ [b3 c4] ~", n "b3 ~ [b4 fs4] b3" ] # s "supersquare" # cutoff (range 200 8000 (tri))
+
+  d6 $ silence
+
+  xfadeIn 6 4 $ every 4 (slow 3) $ jux (fast 2) $ arp "<thumbdown up down up>" $ n "b'min7*3" # s "superpiano" # cutoff (slow 3 $ range 200 20000 tri)
+   # orbit 5 # room 0.3 # size 0.4 # delay 0.7 # delayt 0.9
+
+  xfadeIn 6 4 $ jux (fast 3) $ arp "<thumbdown up down up>" $ n "b'min7*1" # s "superpiano" # cutoff (slow 3 $ range 200 20000 tri)
+   # orbit 5 # room 0.3 # size 0.4 # delay 0.5 # delayt 0.7
+
+  d6 $ jux (slow 3) $ slow 4 $ arp "thumbdown" $ n "b'min7*3" # s "superpiano" # cutoff (slow 3 $ range 200 20000 tri)
+   # orbit 5 # room 0.3 # size 0.4 # delay 0.7 # delayt 0.9
+
+   d3 $ silence
+
+   d4 $ silence
+
+do
+xfadeIn 1 8 $ silence
+xfadeIn 2 8 $ silence
+xfadeIn 3 8 $ silence
+xfadeIn 4 8 $ silence
+xfadeIn 5 8 $ silence
+xfadeIn 6 8 $ silence
+
+hush
+
+
+  -- lil test
+
+  setcps 0.42
+
+  hush
+
+  d1 $ "cp" # delay 0.9 # delayt 0.104
+
+
+do
+  d3 $ n "e'min7*12" # s "supermandolin" # cutoff (slow 3 $ range 200 20000 tri)
+  d4 $ cat [ n "[e4 g3] ~ [e3 a3] ~", n "e3" ] # s "supersquare" # cutoff (range 200 8000 (tri))

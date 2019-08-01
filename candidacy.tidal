@@ -1,0 +1,64 @@
+bpm 90
+
+d1 $ silence
+
+d1 $ swing 16 $ s "v*70" # cut 1
+
+d1 $ swing 16 $ s "v*70" # cut 1 # room 0.4
+
+d1 $ swing 17 $ s "v*<16 16 32>" # cut 1 # orbit 1
+
+d1 $ swing 16 $ s "v*<16 16 32>" # cut 1 # up (run(7)) # orbit 1 # room 0.4
+
+d1 $ swing 16 $ s "v*<16 16 32>" # cut 1 # up "<7 7 12 5>" # orbit 1 # room 0.4
+
+d1 $ swing 16 $ s "v*<16 16 32>" # cut 1 # up "<0 7 5>"  # orbit 1 # room 0.4
+
+d1 $ swing 16 $ s "v*<16 16 32>" # cut 1 # up "<19 19 12 17>" # orbit 1 # delay 0.9 # delay 0.2344  # delayfb 0.0 # orbit 1
+
+d1 $ swing 16 $ s "v*<16 16 32>" # cut 1 # up (fast 6 $ range (-7) 7 $ tri) # orbit 1
+
+d1 $ swing 16 $ s "v*<16 16 32>?" # cut 1 # up (fast 6 $ range (-7) 12 $ tri) # orbit 1
+
+d1 $ swing 16 $ s "v*<16 16 32>" # cut 1 # up (fast 4 $ range (-7) 7 $ tri) # orbit 1
+
+hush
+
+d2 $ s "50bd"
+
+d2 $ s "50bd 50bd"
+
+d2 $ stack [s"50bd 50bd", every 2 (fast 2) $ swing 32 $ s "50ch(<13 10 7!2 6!2>,16,2)?"] # gain 1.2
+
+d2 $ stack [s"50bd 50bd", s "~ 50sd  ~ 50sd?]", every 2 (fast 2) $ swing 32 $ s "50ch(<13 10 7!2 6!2>,16,2)" # up (run (13))] # gain 1.2
+
+d2 $ stack [ s"[50bd 50sd [~ 50bd] 50sd]*2", every 2 (fast 2) $ swing 32 $ s "50ch(<13 10 7!2 6!2>,16,2)?"] # gain 1.2
+
+d2 $ stack [ s"[50bd 50sd [~ 50bd] 50sd]*2", every 2 (fast 2) $ swing 32 $ s "50ch(<13 10 9!2 11!2>,16,<2!5 0>)"] # gain 1.2
+
+d2 $ stack [ s"[50bd 50sd [~ 50bd] 50sd]*2", every 2 (fast 2) $ swing 32 $ s "50ch(<13 10 9!2 11!2>,16,<2!5 0>)?"] # gain 1.2
+
+d3 $ s "moog" # up "<7 7 12 5>" # cut 1 # orbit 1
+
+d3 $ s "moog*2" # up "<7 7 12 5>" # cut 1 # orbit 1
+
+d3 $ swing 12 $ s "moog!3 ~" # up "<7 7 12 5>" # cut 1 # orbit 1
+
+d3 $ silence
+
+d4 $ gap 3 $ fast 3 $ n "[0,4,<-10 -12>] <~ ~ [5,12,19]> ~ ~" # s "supersaw" |+ n "<12 0 -12>" # gain 0.85
+
+d4 $ gap 3 $ fast 3 $ n "[0,4,<-10 12>] <~ ~ [5,12,19]> ~ <~ ~ ~ 5>" # s "supersaw" |+ n "<12 0 -12>" # gain 0.85
+
+d4 $ gap 3 $ fast 3 $ n "[0,4,<-10 12>] <~ ~ [5,12,19]> [-7,0, 5] <~ ~ ~ 5>" # s "supersaw" |+ n "<12 0 -12>" # gain 0.85
+
+d4 $ fast 6 $ n "[0,4,<14 12>] <~ ~ [5,12,19]> [-7,0, 5] <~ ~ ~ 5>" # s "supersaw" |+ n "<12 0 -12>" # gain 0.85
+
+d4 $ fast 6 $ n "[0,4,<14 12>] <~ ~ [5,12,19]> [-7,0, 5] <~ ~ ~ 5>" # s "supersaw" |+ n "<12 0 -12>" # gain 0.85
+
+d4 $ whenmod 8 4 (# up "<-12>") $ swing 8 $ s "supersaw*8" # up "<7 7 12 5>" # voice 0.4 # cutoff 5000 # attack 0.4 # sustain 0.9
+
+
+xfadeIn 4 4 $ silence
+
+hush

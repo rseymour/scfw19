@@ -1,0 +1,14 @@
+cps 0.5 
+
+d1 $ (bite 16 "9 2 ~ 4 1 [2 2 9 5]" . ( # cut 7)) $ loopAt 7 $ s "tlk"
+
+d1 $ off 0.125 (striate 6) $ striate 4 $ s "tlk" #  cut 7
+
+d1 $ off 0.125 (striate 6) $ striate 4 $ s "tlk" #  cut 7 # room 0.3 # size 0.8 # delay 0.4
+
+
+d2 $ s "[50bd*4] 50cp [50bd 50cp] 50sd" 
+
+
+
+hush

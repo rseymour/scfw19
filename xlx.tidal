@@ -1,8 +1,8 @@
 bpm 110
 
-d1 $ every 4 brak $ s "{[50bd ~]*4, [~ 05sd:3 ~ 05sd]}" # gain 1.1
+d1 $ every 4 brak $ s "{[50bd ~]*4, [~ 05sd:3 ~ 05sd]}" # gain 1.2
 
-d2 $ s "[50hb ~] 50ch:2 50ch 50ch:3 50ch 50ch 05oh:3 50ch" # cut "1"
+d2 $ s "[[50cp,50hb/8] ~] 50ch:2 50ch 50ch:3 50ch 50ch 05oh:3 50ch" # cut "1"
 
 d2 $ s "[~ 50lb]*4 [50lb 50hb]*4?" # cut "1"
 
@@ -13,10 +13,13 @@ d1 $ silence
 
 d4 $ whenmod 6 4 (|+ n "5 5 5 5") $ n "c3!3 ~ [d3? [e3 e4]] ~ ~ [[f4 ~] f4 g5?0.6 g3]" # sound "supersaw" # voice 0.2 # release 0.45
 
-d5 $ striate' "<12 6 24>" 0.023 $ s "v" # speed "<0.825 2 1.25 1 -2>" # room "0.15" # pan (slow 2 $ tri) # gain 1.4
+d4 $ whenmod 6 4 (|+ n "5 5 5 5") $ n "c4!3 ~ [d4? [e4 e5]] ~ ~ [[f5 ~] f5 g6?0.6 g4]" # sound "superpiano" # voice 0.8 # release 0.45
+
+d5 $ striate' "<12 6 24>" 0.023 $ s "future" # speed "<0.825 2 1.25 1 -2>" # room "0.15" # pan (slow 2 $ tri) # gain 1.4 # cut "7"
 
 xfadeIn 6 8 $ whenmod 6 4 (|+ n "5 5 5 5") $ n "c3" # sound "supersquare" # attack 0.25 # release 0.45 # voice 0.8
 
 xfadeIn 5 32 $ silence
 
-hush
+
+hush  

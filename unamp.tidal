@@ -1,0 +1,54 @@
+bpm 108
+
+d1 $ swing 32 $ every 2 (bite 9 "0 [~ 0 ~ 3] ~ 0*<4 8>" ) $ n "[c'maj*3 a'min*3 g'maj*3 g'maj*3]/8" # s "superpiano" # gain 1.0 # room 0.5 # size 0.8 # orbit 0
+
+d2 $ s "50bd 05bd 50bd <05bd 05bd*4>" # gain 1.1
+
+d2 $ s "[[50bd 50bd] 50sd [50bd [~ 50bd/4]] <05bd*4 [50sd 50bd/8]>]" # room 0.2 # size 0.1 # orbit 1 # gain 1.1
+
+d3 $ arp "<thumbup>" $ n "[c'maj a'min g'maj? g'maj]/8" # s "supersquare"
+  # voice 0.17 # gain 0.8 # room 0.5 # size 0.9 # orbit 2 # attack 0.18 # sustain 0.13
+  # delay 0.9 # delayt 0.171 # delayfb 0.7
+
+d4 $ swing 24 $ s "[50oh/4 50ch]*4" # gain 1.4
+
+d1 $ silence
+
+d3 $ silence
+
+hush
+
+xfadeIn 2 1 $ silence
+
+:t xfadeIn
+
+d3 $ striate 3 $ arp "<thumbup>" $ n "[c'maj*<0.5 1> a'min*<0.5 1> g'maj*<0.5 1> g'maj]/4" # s "supersquare"
+  # voice 0.4 # gain 0.8 # room 0.7 # size 0.9 # orbit 2 # attack 0.002 # decay 0.0003 # sustain 0.23 # release 0.09
+  # delay 0.93 # delayt (0.720) # delayfb 0.5
+
+d3 $ striate 3 $ arp "<thumbup>" $ n "[c'maj7*<2 3> a'min7*<2 3> g'maj7*<2 3> g'maj7]/16" # s "supersquare"
+  # voice 0.4 # gain 0.8 # room 0.7 # size 0.9 # orbit 2 # attack 0.00018 # decay 0.0002 # sustain 0.23 # release 0.08
+  # delay 0.93 # delayt 0.637 # delayfb 0.0
+
+do
+  d1 $ swing 32 $ every 2 (bite 9 "0*<8 4 10 1> 4 5 2 9") $ n "[c'maj*3 a'min*3 g'maj*3 g'maj*3]/8" # s "superpiano" # gain 1.0 # room 0.5 # size 0.8 # orbit 0
+    # delay 0.9 # delayt 0.38 # delayfb 0.5
+  d2 $ s "[[50bd 50bd] 50sd [50bd [~ 50bd/4]] [50sd 50bd/8]]" # room 0.2 # size 0.4 # orbit 1 # gain 1.2
+  d3 $ striate 3 $ arp "<thumbup>" $ n "[c'maj*<2 1> a'min*<2 1 3 2> g'maj*<2 1> g'maj]/8" # s "supersquare"
+    # voice 0.2 # gain 0.8 # room 0.6 # size 0.9 # orbit 2 # attack 0.10 # sustain 0.08
+    # delay 0.9 # delayt 0.635 # delayfb 0.7
+  d4 $ every 16 (chew 12 "[0*8 ~] 3*2 [~ 7*8] 0*4") $ swing 24 $ s "[50cp/4 50ch]*6" # gain 1.4
+  d5 $  n "[c3 a3 g3 g3]/8" # s "supersquare" # gain 1.2 # attack 0.2 # release 1.9 # voice 0.3
+
+do
+  d1 $ swing 32 $ every 2 (bite 9 "0*<8 4 10 1> 4 5 2 9") $ n "[g'maj*3 f'maj*3 g'maj*3 f'maj*3]/8" # s "superpiano" # gain 1.0 # room 0.5 # size 0.8 # orbit 0
+    # delay 0.9 # delayt 0.38 # delayfb 0.5
+  d2 $ s "[[50bd 50bd] 50sd [50bd [~ 50bd/4]] [50sd 50bd/8]]" # room 0.2 # size 0.3 # orbit 1 # gain 1.2
+  d3 $ silence
+  -- d3 $ striate 2 $ arp "<thumbup*4>" $ n "[g'maj*2 f'maj*2 g'maj*2 f'maj*2]/8" # s "supersquare"
+  --   # voice 0.2 # gain 0.8 # room 0.6 # size 0.9 # orbit 2 # attack 0.18 # sustain 0.12
+  --   # delay 0.8 # delayt 0.135 # delayfb 0.7
+  d4 $ every 4 rev $ swing 24 $ s "50cp 50ch*6" # gain 1.4
+  d5 $ every 4 (chop 16) $ n "[g3 f3 g3 f3]/8" # s "supersquare" # gain 1.2 # attack 0.2 # release 1.9
+
+hush

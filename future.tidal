@@ -1,16 +1,18 @@
 cps 1
 
+hush
+
 once $ "future" # orbit 1 # delay 0.8 # delayt 0.207 # delayfb 0.7
 
 d1 $ jux ((# speed "-0.5") . (0.75 ~>)) $ every 5 (chop "<1 8 48 128>/2") $ loopAt 3 $ cat [s "future/2"] # end (choose [0.55, 1.0])
-# begin (choose [0.0,0.0, 0.4, 0.5]) # hcutoff 220 # cutoff 4800 # gain 1.0 # shape 0.8 # orbit 1
+# begin (choose [0.0,0.0, 0.4, 0.5]) # hcutoff 220 # cutoff 5800 # gain 1.0 # orbit 1
 # delay 0.9 # delayt 0.378 # delayfb 0.7
 
 d2 $ stack [
-    s "[50ch!3 [05ch 05ch?0.8] 50ch!2 ~ [50ch/4 50ch?/2]]*<1 1 1 2>" # cut 1
+    s "[50ch!3 [05ch 05ch?0.8] 50ch!2 ~ [50ch/4 50ch?/2]]*<1 1 1 0.5 1 0.75 1 1.5>" # cut 1
     --,s "[[50lb/16 05cp/8] [50sd [50rs/3 50rs/4 ~  50rs/12]]]*2",
-    ,s "[~ [50sd [50rs/3 50rs/4 ~  50rs/12]]]*2"
- --   ,s "50bd 50bd"
+    -- ,s "[~ [50sd [50rs/3 50rs/4 ~  50rs/12]]]*2"
+ ,s "50bd 50bd"
 ] # gain 1.2 # orbit 2
 
 d3 $ every 3 (off 0.128 (+ n "<12 12 0>/2"))

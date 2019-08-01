@@ -1,0 +1,13 @@
+bpm 125
+
+d1 $ s "breaks125"
+
+d1 $ every 2 (jux . (gap 8)) $ s "breaks125:2"
+
+d2 $ s silence
+
+d2 $ every 3 (rev . slow 2) $ chop 2 $ cat [ n "g4 g3 [a5 a4] ~", n "", n "[a5 ~] a3", n "" ] # s "supersquare" 
+ 	# gain 0.7 # cutoff 440 # resonance 0.3
+
+d2 $ every 3 (rev . slow 2) $ chop 2 $ cat [ n "g4 g3 [a5 a4] ~", n "", n "[a5 ~] a3", n "" ] # s "supersquare" 
+ 	# gain 0.7 # cutoff 220 # resonance 0.3

@@ -1,27 +1,40 @@
-bpm 120
+bpm 90
 
-d1 $ jux rev $ note ( whenmod 4 8 (|+ "0 5 0 7") $ "[d5*4 g5?0.9 [a5*2?0.8 ef4]]")
-   # sound "superpiano" # attack 0.05 # release 0.22
-   |+ pF "vowel" (choose [0,1])
-   |+ note "<12 7 5 5>/2"
 
-jumpIn 2 1 $ chunk 8 (hurry 3) $ sound "{bd:3*4, [[50hb?0.6 50hc:2] 50sd?*4]*2, [50cp?0.8 50cp?0.9 05cp?0.9]*2}"
+d1 $ slow 4 $ note "[a'min*4 g'maj*8 f'maj*16 f'maj*12]/4"
+   # sound "superpiano" -- # attack 0.05 # release 0.22
+   # shape 0.4
+   # room 0.4 # size 0.3
 
-d3 $ jux rev $ slow 2 $ "[d5*4 a5?0.9 g5*2?0.8 ef4]*2")
-# sound "supersquare" # attack 0.03 # release 0.23
-|+ note "<12 0 12 0>/2"
+jumpIn 2 1 $ chunk 8 (hurry 3) $ sound "{50bd:3*4, [~ 50sd?*4]*2, [50cp?0.8 50cp?0.9 05cp?0.9]*2}" # room 0.3 # size 0.4
 
-d3 -- $ chunk 4 (chop 6)
-  $ slow 2 $
+jumpIn 2 1 $ chunk 8 (hurry 2) $ sound "{50bd:3*4, [[50hb?0.6 50hc:2] 50sd?*4]*2, [50cp?0.8 50cp?0.9 05cp?0.9]*2}"
+
+jumpIn 2 1 $ chunk 8 (hurry 3) $ sound "{50bd:3*4, [[50hb?0.6 50hc:2] 50sd?*4]*2, [05rs 05ch]*8}" # gain 1.1
+
+d2 $ chunk 7 (hurry 2) $ sound "{50bd:3*4, [[50hb?0.6 50hc:2] 50sd?*4]*2, [05rs 05ch]*8}" # gain 1.1
+
+jumpIn 2 1 $ sound "{50bd:3*4, [[50hb?0.6 50hc:2] 50sd?*4]*2, [05rs 05ch]*8}" # gain 1.1
+
+
+d3 $ -- chunk 4 (chop 6)
   (0.123 <~) $
-  n (off 0.25 (+12) $ off 0.125 (+7) $ slow 2 "d4(5,8)? a4(3,8,2) g(3,8,2) ef(3,8,4)")
-  # sound "supersquare" # attack 0.03 # release 0.13
+  n (off 0.25 (+12) $ off 0.125 (+7) $ slow 4 "a4(5,8)? g4(3,8,2) f(3,8,2) f(3,8,4)")
+  # sound "supersquare" # attack 0.03 # release 0.43
 
-d3 $ silence
+xfadeIn 3 16 $ silence
 
+hush
 
-d1 $ s "{bd ~ bd [~ ~ ~ cp], [hh ~ ~]*2}"
+d1 $ every 2 (jux (rev . (chop 4))) $ s "{bd ~ bd [~ ~ ~ cp], [hh ~ ~]*4}" 
 
-d1 $ slow 2 $
+d3 $ (chop 16) $ s "< moog>" # cutoff (range 100 4400 tri) # gain 1.2
+
+d3 $ -- jux (rev) $ every 2 (chop 4) $ slow 2 $
   n (off 0.125 (+12) $ off 0.25 (+7) $ slow 2 "d4(5,8)? a4(3,8,2) g(3,8,2) ef(3,8,4)")
-  # sound "superpiano"
+  # sound "superpiano" # orbit 2 # gain 0.7 # delay 0.8 # delayt 0.33
+
+
+hush
+
+once $ chop 4 $ s "future"

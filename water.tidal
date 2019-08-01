@@ -25,9 +25,9 @@ d4 $ silence
 
 jumpIn 2 1 $ s "05bd*2"
 
-jumpIn 4 4 $ stack [s "50bd*2",
+d4 $ stack [
    --s "[~ [~ 50bd?]] [05cp] ~ [50cp 50cp?]",
-    s "50ch*16"]
+    swingBy (1/7) 8 $ s "50ch!16"]
 
 jumpIn 4 4 $ silence
 
@@ -42,7 +42,7 @@ d5 $ slow 4 $ n "a4 d2" # s "moog"  # cut 3
 d5 $ slow 4 $ n "e d" # s "moog"  # cut 3 # cutoff 200
 
 d1 $ jux (rev . (sometimes (|+ n "5")))
-   -- $ off 0.333 (sometimes (|+ n "12"))
+   $ off 0.333 (sometimes (|+ n "12"))
    $ off 0.125 (sometimes (|+ n "7"))
    -- $ striate "<11 21 13 21>"
    -- $ striate "<1 2 3?>"
@@ -50,9 +50,9 @@ d1 $ jux (rev . (sometimes (|+ n "5")))
    -- $ n "[a ~ ~ d6?]/4" # s "supermandolin"
    -- $ n "[a c [~ c?] d5?]/3" # s "supermandolin"
    -- $ n "a4 c4 e4 d4?" # s "supermandolin"
-   $ n "[a c e ~]/7" # s "superpiano"
+   -- $ n "[a c e ~]/7" # s "superpiano"
    -- $ n "[e ~ ~ ~]" # s "superpiano"
-   -- $ n "[a c e ~]*2/3" # s "supermandolin"
+   $ n "[a c e ~]*2/3" # s "supermandolin"
    -- $ n "[a c ~ d]*2/3" # s "supermandolin"
    # room 0.3 # delay 0.6 # delayfb 0.1
 
