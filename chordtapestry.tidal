@@ -1,0 +1,14 @@
+d1
+$ every 3 (|+ n "<-12>")
+$ chunk 2 (jux $ hurry 2 . rev)
+$ chop 2
+$ arp "updown"
+$ n "<a3 g3 d3>'maj7'5/4"
+# s "supersaw"
+# attack 0.1
+# release 0.3
+# cutoff (slow 3 $ range 440 1300 tri)
+
+
+hush
+

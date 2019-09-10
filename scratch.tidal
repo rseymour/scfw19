@@ -1,0 +1,5 @@
+d1
+  $ slow 4
+  $ slice 64 "[0..64]"
+  $ s "bev"
+  # accelerate (range (irand 8 - 8) (irand 8)  $ sine)

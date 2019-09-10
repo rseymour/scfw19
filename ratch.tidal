@@ -1,0 +1,6 @@
+do
+let ratchet thresholds modifier = mask $ ((1 <=). floor) <$> thresholds |+| modifier
+d1 $ ratchet "1 0.1 0.8 0.3" rand "bd arp hh jungle"
+
+
+hush
