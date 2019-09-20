@@ -1,5 +1,7 @@
 bpm 92.9
 
+-- or
+
 d2 $ s "50bd [05rs*8] 50bd [05rs*2]"
 
 d2 $  stack[ s "50bd 50sd 50bd [50sd, 50bd*2]", chunk 4 (fast 2) $ s "50ch(9,16)"] -- try lb hc etc
@@ -9,6 +11,8 @@ d2 $  stack[ s "50bd 50sd 50bd [50sd, 50bd*2]", chunk 4 (fast 2) $ s "50ch(9,16)
 d1 $ loopAt 4 $ chop 32 $ s "rtp4"
 
 d1 $ slice 4 "[0 1]*4" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1" -- plain
+
+d1  $ loopAt 4 $ slice 48 "1*16" $ chop 48 $ s "rtp4" # cut "1" -- cut diff
 
 d1 $ slice 32 "0 0 0 0*<2 4 8> 0 0 ~ 4*2" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1" -- no party
 
