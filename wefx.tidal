@@ -1,0 +1,16 @@
+bpm 98
+
+d2 $ s "05bd 50sd ~ <05sd 50sd>*<1 1 1 2>" # gain 0.9
+
+d1 $ juxBy 0.6 (|* speed "2") $ loopAt "<4 6 2 3>" $ loopAt 2 $ slice 8 (run 8) $ chop 2 $ s "wefx:2"
+
+d1 $ loopAt 1 $ bite 2 "0 0" $ chop 2 $ s "wefx" -- doubletime lol
+
+d1 $ loopAt 2 $ bite 2 "0 0" $ chop 2 $ s "wefx"
+
+d1 $ loopAt 2 $ chop 8 $ s "wefx"
+
+d1 $ loopAt 2 $ slice 8 (run 8) $ chop 2 $ s "wefx:2"
+
+
+hush
