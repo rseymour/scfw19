@@ -1,5 +1,7 @@
 bpm 92.9
 
+d2 $ s "50bd [05rs*8] 50bd [05rs*2]"
+
 d2 $  stack[ s "50bd 50sd 50bd [50sd, 50bd*2]", chunk 4 (fast 2) $ s "50ch(9,16)"] -- try lb hc etc
 
 -- nothin but puff and mc lyte
@@ -8,26 +10,36 @@ d1 $ loopAt 4 $ chop 32 $ s "rtp4"
 
 d1 $ slice 4 "[0 1]*4" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1" -- plain
 
+d1 $ slice 32 "0 0 0 0*<2 4 8> 0 0 ~ 4*2" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1" -- no party
+
 d1 $ slice 4 "[0 1]*2" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1" -- cutoff
+
+d1 $ slice 8 "[0 1]*<4 8 4 16>" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1" -- cutoff
+
+d1 $ slice 8 "[0 1]*<4 8 4 8>" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1" -- cutoff
 
 d1 $ slice 8 "<[0 1 2 7] [0 1 2*2 2] [4 4 6*2 6] [0 2 2*2 3] >" $ loopAt 4 $ chop 16 $ s "rtp4" # cut "1"
 
-d1 $ slice 8 "<[0*2 1 2 7] [0 1*2 2*4 2] [4*2 4 6*4 6] [0*2 2 2*4 3] >" $ loopAt 4 $ chop 16 $ s "rtp4" # cut "1"
+d1 $ slice 8 "<[0*2 1 2 7] [[0 ~] 1*2 2*4 2] [4*2 4 6*4 6] [0*2 2 2*4 3] >" $ loopAt 4 $ chop 16 $ s "rtp4" # cut "1"
 
 -- mc lyte
 
-d1 $ loopAt 2 $ s "rtpl2" # cut "1"
+d1 $ loopAt 2 $ s "rtpl2"
 
-d1 $ jux (rev) $ loopAt 2 $ s "rtpl2" # cut "1"
+d1 $ loopAt 2 $ jux (# speed "-1") $ chop 8 $ s "rtpl2"
 
 -- missy
 
-d1 $ loopAt 16 $ chop 16 $ s "rtpm16" # cut "1"
+d1 $ loopAt 16 $ chop 32 $ s "rtpm16" # cut "1"
 
 d1 $ loopAt 16 $ slice 32 "[0*2 0*2 3*2 2*4]*4" $ chop 16 $ s "rtpm16" # cut "1"
 
-xfadeIn 2 16 $ silence
+d1 $ loopAt 16 $ slice 32 "[0*2 0*2 3*2 2*4]*4" $ chop 32 $ s "rtpm16" # cut "1"
+
+xfadeIn 2 4 $ silence
 
 d1 $ sometimes rev $ slice 4 "[0 1]*4" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1"
+
+d1 $ silence
 
 hush
