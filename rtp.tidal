@@ -2,7 +2,7 @@ bpm 92.9
 
 -- or
 
-d2 $ s "50bd [05rs*8] 50bd [05rs*2]"
+d2 $ s "50bd [05rs 05rs*4] 50bd [05rs*2]"
 
 d2 $  stack[ s "50bd 50sd 50bd [50sd, 50bd*2]", chunk 4 (fast 2) $ s "50ch(9,16)"] -- try lb hc etc
 

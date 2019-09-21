@@ -1,0 +1,15 @@
+d1 $ cat  [s "50lc*2",  chunk 4 (hurry 2) $ s "[50lc ~]*4"]
+
+d2 $ slow 2 $ degradeBy 0.7 $ arp "<updown down up>"  $ cat [n "d4'min'8", n "g4'maj7'8?", n "a4'min'8", n "c4'maj7'4"] # s "dx"
+
+d2 $ slow 8  $ chunk 4 ((fast 2) . (|+ n "<12>")) $ chop "16 16" $ n "d3 g3 a3 c3" # s "supersquare" # attack 0.1  # sustain 0.9 # release 0.7
+
+d1 $ slow 1 $ striate 2 $ cat  [s "50lc*2",  chunk 4 (hurry 2) $ s "[50lc ~]*8"]
+
+d4 $ slow 1 $ sometimes brak $ s "[50bd 50sd 50bd [50sd 50sd?]]"
+
+d4 $ silence
+
+d2 $ fast 1 $ arp "<updown down up>"  $ cat [n "d4'min'8", n "g4'maj7'8?", n "a4'min'8", n "c4'maj7'4"] # s "dx"
+
+d3 $ slow 8 $ arp "<up down up down>" $ n "d3'min'8 g3'maj7'8 a3'min'8 c3'maj7'4" # s "dx" 

@@ -1,0 +1,98 @@
+bpm 106
+
+hush
+
+d11 $ midinote "4*8" # "fh"
+
+d1 
+-- $ jux (chunk 2 (hurry 2)) 
+$ s "[[50bd 50bd/4] ~ 50bd/2 ~, ~ 50sd ~ 50sd/4]" 
+
+d1 
+$ jux (chunk 2 (hurry 2)) 
+$ s "[[50bd 50bd/4] ~ [50bd 50bd/2] ~, ~ 50sd ~ 50sd]" 
+
+d1 
+-- $ jux (chunk 2 (hurry 2)) 
+$ s "50bd [~ 50bd] 50sd [50sd/8 50sd/2]" 
+
+d2 
+$ chunk 4 (fast 2) 
+-- $ chunk 4 (hurry 2) 
+$ swing (1/3)
+$ stack [ midinote "[~ [~ 3] [~ 3/4] [~ 3]]",
+          midinote "1 [~ 1] 2 [2/8 2/2]"]
+# "fh"
+
+d1 $ silence
+
+d3 $ n "[c'maj c'maj f'maj f'maj]/4" # s "superpiano" -- basic intro
+
+d5 $ arp "up" $ n "[c1 c1 f1 f1]/4" # s "fh" # midichan 0 -- basic intro
+
+do
+  d3
+    $ degradeBy 0.1
+    -- $ chop 2
+    $ arp "updown downup" 
+    $ slow 2 $ cat [
+    n "[c'maj f'maj]",
+    n "[c'maj f'maj]",
+    n "[c'maj f'maj]",
+    n "[a'min f'maj]"
+    ]
+    # s "fh" -- verse
+  d4
+    $ chop 2
+    $ slow 2 $ cat [
+    n "[c1 f1]",
+    n "[c1 f1]",
+    n "[c1 f1]",
+    n "[a1 [f2 c2 e2/2 f1]]"
+    ]
+    # s "fh" 
+    # midichan 1 -- verse
+
+do
+  d3 $ chop 4
+    $ arp "up up up down"
+    $ slow 2 
+    $ cat [
+    n "[c'maj'2 f'maj'4]",
+    n "[c'maj'2 a'min'4]",
+    n "[c'maj'2 f'maj'4]",
+    n "[c'maj'4 a'min'8]"
+    ]
+    # s "fh" -- chorus
+  d4
+    $ chop 2
+    $ slow 2 $ cat [
+    n "[c1 f1]",
+    n "[c1 a1]",
+    n "[c1 f1]",
+    n "[a1 [a2 c2 e2 a3]]"
+    ]
+    # s "fh" 
+    # midichan 1 -- chorus
+  d2 
+    -- $ every 4 (fast 2) 
+    $ chunk 4 (fast 2) 
+    $ every 4 brak
+    -- $ chunk 4 (hurry 2) 
+    $ swing (1/3)
+    $ stack [ midinote "[~ [~ 3] [~ 3/4] [~ 3]]",
+              midinote "1 [~ 1] 2 [2/8 2/2]"]
+    # "fh"
+
+
+  d3
+    $ chop 4 
+    $ slow 2 $ cat [
+    n "[c'maj f'maj]",
+    n "[c'maj f'maj]",
+    n "[c'maj f'maj]",
+    n "[a'min f'maj]"
+    ]
+    # s "superpiano" -- verse
+
+hush

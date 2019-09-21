@@ -1,0 +1,7 @@
+d1 $ scale "mixolydian" (segment 6 $ round <$> (slow 4 $ range 1 16 $ tri))
+   # s "superpiano"
+
+d2 $ "50bd*4"
+
+
+hush

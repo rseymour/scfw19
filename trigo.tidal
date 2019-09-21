@@ -1,0 +1,13 @@
+bpm 90
+
+d1 $ sound "50bd*4 50cp:4(5,8,<0 2>)"
+
+d1 $ sound "[50bd 50cp]*2"
+
+d2 $ every 2 (|+ n "<-12>") $ chunk 4 (fast 2) $ n "e5 [b4 d5] fs5 [d4 e5]" # s "supersaw" # cutoff (range 110 5000 $ slow 2 tri) # attack 0.001 # release 0.3
+
+d3 $ every 2 (|+ n "<-12>") $ chunk 4 (slow 2) $ arp "<up down up>" $ n "e'min [b'min d'maj] fs'maj [d'maj e'min?]"  # s "superpiano" # orbit 2 # delay 0.6 # delayt 0.0625 # delayfb 0.3 # room 0.5 # gain 0.8
+
+d3 $ silence
+
+d4 $ every 1 (|+ n "<-24>") $ chunk 2 (fast 2) $ n "e5 [b4 d5] fs5 [d4 e5]" # s "supersquare" # cutoff (range 110 5000 $ slow 2 tri) # attack 0.01 # release 0.5 # resonance 0.4

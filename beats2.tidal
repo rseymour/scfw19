@@ -1,0 +1,41 @@
+bpm 120 
+
+d1 $ cat [ s "50bd <50bd 50cp> {50sd 50bd} [~ 50sd]", s "50bd <50cp [05sd:1 50sd/4 05sd:2/2 50sd:1/4]> [50sd 50bd] 50sd/2"]
+
+let cp = "<g2'maj9'8 d3'maj7'8 e3'min9'8 c3'maj9'8 g2'maj9'8 a3'min7'8 e3'min9'8 c3'maj9'8>"
+
+let bl = "<g2 d3 e3 c3 g2 a3 e3 c3>" 
+
+d2 $ swingBy (1/3) 8 $ whenmod 6 4 ( const $ n "" ) $ degradeBy 0.2 $ arp "down" $ n cp  # s "superpiano"
+# gain 0.9 # room 0.3
+
+d3 $ swingBy (1/3) 8 $ whenmod 32 10 ( const $ n "" ) $ (20 <~) $ degradeBy 0.2 $ arp "converge" $ n cp # s "superhammond" # cutoff 1500 # gain 0.9 # room 0.3
+
+d4 $ swingBy (1/3) 8 $ whenmod 12 8 ( const $ n "" ) $ (80 <~) $ degradeBy 0.3 $ arp "diverge" $ n cp # s "supersquare" # cutoff 1880 # gain 0.9 # room 0.3
+
+d5 $ every 2 (|+ n "12 19 12 12" ) $ n bl # s "supersquare" # voice 0.6 # room 0.1
+
+hush
+
+bpm 120 
+
+d1 $ chew 4 "0 <2 1 1 0> <0 1> <3 [2 1]>" $ cat [ s "50bd <50bd 50cp> {50sd 50bd} [~ 50sd]", s "50bd <50cp [05sd:1 50sd/4 05sd:2/2 50sd:1/4]> [50sd 50bd] 50sd/2"]
+
+let cp = "<g2'maj9'8 d3'maj7'8 e3'min7'8 c3'maj9'8 g2'maj9'8 [a3'min7'4 d3'maj7'4] e3'min9'8 c3'maj9'8>"
+
+let cp = "<[~ g2'maj9'4] [~ d3'maj7'4] [~ e3'min7'8] [~ c3'maj9'4] [~ g2'maj9'4] [~ d3'maj7'4] [~ e3'min9'4] c3'maj9'4>"
+
+let bl = "<[g3 ~] [d3 ~] [e3 ~ c3 <g3 g4> [a3 d4] e3 c3>" 
+
+let bl = "<[g3 ~] [d3 ~] [e3 ~] [c3 ~] <g3 g4> [[a3 d4] ~] [e3 ~] [c3 ~]>" 
+
+
+d2 $ chunk 4 (slow 2)$ swingBy (1/3) 8 $ degradeBy 0.6 $ arp "down" $ n cp  # s "superpiano" # gain (slow 5 $ range 0.5 0.8 sine) # room 0.3
+
+d3 $ chunk 4 (slow 2) $ swingBy (1/3) 8 $ (20 <~) $ degradeBy 0.4 $ arp "converge" $ n cp # s "superhammond" # cutoff 4500 # gain (slow 3 $ range 0.5 0.8 sine) # room 0.3
+
+d4 $ chunk 8 (|+ n "12") $ swingBy (1/3) 8 $ (80 <~) $ degradeBy 0.5 $ arp "diverge" $ n cp # s "supersquare" # cutoff 1880 # gain (slow 7 $ range 0.5 0.8 sine) # room 0.3
+
+d5 $ sometimes (chop 4) $ n bl # s "supersquare" # voice 0.6 # room 0.1 # gain 0.9 # cutoff 2200
+
+hush

@@ -1,0 +1,28 @@
+bpm 120
+
+d1 $ loopAt 4 $ s "rec" + n "1"
+
+d2 $ s "50bd 50bd 50bd 50bd"
+
+d3 $ loopAt 4 $ s "rec1"
+
+hush
+
+d1 $ stack [
+  every 2 (fast 2) $ n "[0 3 5 7]/8" # s "tink", 
+  loopAt 16 $ s "rec" + n "1",
+  loopAt 16 $ s "rec1" 
+] # gain "1.05" # room "0.6" # size "0.9"
+
+
+d1 $ stack [
+  n (arp "updown" "<c'maj'4 e'maj7'4>") # sound "notes",
+  whenmod 4 3 (const $ loopAt 1 $ s "rec" + n "6") $ s "~",
+  loopAt 0.5 $ s "rec6" # gain "1.25"
+]
+
+
+d1 $ every 3 (fast 3) $ s "05bd*4"
+
+d2 $ s "in(<4 8 4 9 5 9>, 12,3)" #  sustain 0.8 # release 0.07 # attack 0.01
+

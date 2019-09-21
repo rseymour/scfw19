@@ -1,0 +1,3 @@
+bpm 160
+
+xfadeIn 1 16 $ s "amencutup" # run (up 32)

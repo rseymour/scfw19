@@ -1,0 +1,48 @@
+bpm 120
+
+d4 $ 
+off 0.250 (0.490 <~) $ 
+slow 8 $ 
+chunk 4 (fast 2) $ 
+n "0 [~ 2] 7 [2? 4 7? 9]" 
+# s "dx" 
+|+ n "<-12>" 
+
+d4 $ off 0.125 (0.490 <~) $ slow 8 $ chunk 4 (fast 2) $ n "0 [~ 2] 7 [2? 4 7? 9]" # s "dx" |+ n "<-12>" 
+
+hush
+
+d1 $ degradeBy (range 0.0 0.7 (slow 8 tri))$ chunk 8 (fast 2 . (|+ n "<12 12 12 24>") ) $ n "0 4 7 11 14 11 7 4" |+ n "<-12>" # s "dx"
+
+d1 $ jux rev $ chunk 8 (fast 2 . (|+ n "<24 12 12 24>") ) $ n "0 4 7 11 14 11 7 4" |+ n "<-12>" # s "dx"
+
+d4 $ jux rev $ chunk 4 (fast 2) $ n "0 [0 2] 7 [2? 4 7? 9]" # s "dx" |+ n "<12>"
+
+d4 $ slow 8 $ jux rev $ chunk 4 (fast 2) $ n "0 [0 2] 7 [2? 4 7? 9]" # s "dx" |+ n "<12>"
+
+d4 $ jux rev $ slow 4 $ chunk 4 (fast 2) $ n "0 [0 2] 7 [2? 4 7? 9]" # s "dx" |+ n "<12>"
+
+d1 $ slow 4 $ jux rev $ chunk 8 (fast 2 . (|+ n "<24 12 12 24>") ) $ n "0 4 7 11 14 11 7 4" |+ n "<-12>" # s "dx"
+
+d2 $ s "50bd 50cp 50bd <50cp 50cp 50cp [50cp*4]>" # gain 1.0
+
+d2 $ s "50bd 50sd 50bd <50sd 50cp 50sd [50cp*4]>" # gain 1.1 # room 0.3
+
+d2 $ s "50bd 50cp 50bd [50cp*4]" # gain 1.1 # room 0.3
+
+d3 $ n "<0 0 0 0 7 7 7 7>" # s "supersquare"  |+ n "<-24>" # gain 1 # cutoff (range 110 1600 $ slow 4 tri) # room 0.2
+
+d5 $ swing (1/3) $ s "50ch(13,16)" # cutoff (range 2000 3000 tri) # resonance 0.1
+
+d2 $ silence
+
+d1 $ silence
+
+d2 $ silence
+
+
+d1 $ chunk 8 (slow 8 . striate 3 . fast 4 . (|+ n "<12 12 12 24>") ) $ n "0 4 7 11 14 11 7 4" |+ n "<-12>" # s "dx"
+
+d1 $ s "bd"
+
+d1 $ n "0 4 7 11 12 11 7 4" |+ n "<-12>" # s "dx"

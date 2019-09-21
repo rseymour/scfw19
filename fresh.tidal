@@ -1,0 +1,13 @@
+hush
+
+d1 $ chunk 4 (fast 2) $ midinote "1 2 1 2" # s "fh"
+
+d2 $ midinote "[3](7,8)" # s "fh"
+
+
+
+d3 $ every 2 (brak) $ arp "updown" $ n "bf3'min7'7" # s "fh"
+
+d4 $ n "bf2 bf3 ef2" # s "fh" # midichan 1 
+
+hush

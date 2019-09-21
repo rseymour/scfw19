@@ -1,0 +1,41 @@
+bpm 130
+
+d1 $ s "[50bd ~ [50bd:1 50bd:2?] ~, ~ ~ ~ 05sd, 50rs(<5 7>,16), 05cr:2/16 05cr:3/16]"
+
+d2 $ sometimes (chop 2) $ n "c4 e4" # s "supersquare" # cutoff 200 # resonance 0.2
+
+d2 $ degrade $ chunk 4 (hurry 2) $ sometimes (chop 2) $ n "g4? c5? g4 c5" # s "superpiano" # cutoff 4000
+
+d2 $ silence
+
+d3 $ degrade $ chunk 4 (fast 2) $ sometimes (# n "<+12>") $ sometimes (chop 2) $ n "[g4? c5? g4 c5,c6 f5 c6 ~]" # s "superpiano" # cutoff 12750 # room 0.25 # size 0.6
+
+d3 $ degradeBy 0.6 $ chunk 4 (hurry 2) $ sometimes (# n "<+12>") $  fast 1 $ n "[g4? c5? g4 c5,c6 f5? [c6 c7 c6] ~]" # s "superpiano" # cutoff 6750 # room 0.55 # size 0.7 # orbit 2 # delay 0.333 # delayt 0.5325 # delayfb 0.5
+
+xfadeIn 3 16 $ silence
+
+d1 $ chunk 4 (hurry 2) $ s "[50bd 50bd [50bd:1 05bd:2/8] 05bd*<1 2 1 4>, [[50cp*3]/3],~ 05sd ~ 05sd, 05ch(<4 4 5 7>,16), ~ 05cr:3/16]" # gain 1.2
+
+d1 $ s "[50bd ~ [50bd:1 50bd:2?] ~, ~ ~ ~ 05sd, 50rs(<5 7>,16), 05cr:2/16 05cr:3/16]"
+
+d1 $ s "[50bd ~ 50bd [50sd]], 50ch*16, [ ~ ~ 50cp 50cp]" # cutoff 21000
+
+d1 $ s "bd:3 bd:3, ~ sn:2 ~ sn:2, 50cp*4" # gain 1.2
+
+d2$ silence
+
+d1 $ slow 2 $ s "50bd 50sd:2 [50bd 50bd] [50bd 50rs*4]"
+
+d2 $ degradeBy 0.1 $ chunk 4 (hurry 2 . chop 4) $ s "~ numbers:1 numbers:2 ~" # delay 0.4 # delayfb 0.4 # cut "1"
+
+once $ s "numbers:5 ~" # delay 0.4 # delayfb 0.4 # cut "1" # orbit 4
+
+d5 $ silence
+
+d3 $ "50hc*<12 0 0 6 0 3 0 3>" # cut 3
+
+d4 $ chunk 4 (hurry 2) $ s "~ 50cp ~ 05cp" 
+
+d5 $ chunk 4 (slow 4) $ chop 2$ arp "[updown up down ~]/4" $ n "g'min7*4" # s "superpiano" # room 0.4 # orbit 4 
+
+d6 $ silence 

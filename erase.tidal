@@ -1,0 +1,38 @@
+bpm 90
+
+hush
+
+d1 $ n "c5" # s "fh" # midichan 0
+
+d4 $ n "c3" # s "fh" # midichan 1
+
+d1 $ fast 2 $ cat [n "c2 ~ e3 c2 e3 ~", n "c2 ~ e3 c2 e3 ~", n "a1 ~ c2 a1 c2 ~", n "g1 ~ b2 g1 b2 b3"] # s "fh" # midichan 1
+
+
+d2 $ midinote "[[1 1 [~/2 1], 2 2/2]*2, [3](<7 5>,<8 12 8>)]" # s "fh"
+
+
+d2 $ 
+
+d1 $ silence
+
+
+hush
+
+jumpMod 1 4 $ fast 2 $ cat [n "c2 ~ c2 ~", n "c2 ~ c2 ~", n "a1 ~ a1 ~", n "g1 ~ g1 ~"]  # s "fh" # midichan 1
+
+d2 $ midinote "[[1 1]*2, [2 2 2]*2, 3(7,8)]" # s "fh"
+  
+do 
+  d1 $ fast 2 $ cat [n "c2 ~ c2 ~", n "c2 ~ c2 ~", n "a1 ~ a1 ~", n "g1 ~ g1 ~"]  # s "fh" # midichan 1
+  d2 $ midinote "[[1 1]*2, [2 2 2]*2, 3(7,8)]" # s "fh"
+
+do 
+  d1 $ cat [n "[f1 c2/3]*4", n "[f1 c2/3]*4", n "[g1 d2/3]*4", n "[g1 d4/3]*4"]  # s "fh" # midichan 1
+  d2 $ chunk 4 (chop 2) $ midinote "[[1 1]*2, [2 2 2]*2, 3(7,8)]" # s "fh"
+
+do 
+  d1 $ fast 2 $ cat [n "c1 ~ c1 ~", n "c1 c1/2 c1 ~", n "e2 [e2 b2] e2 ~", n "f2 [f2 c3] f2 ~"]  # s "fh" # midichan 1
+  d2 $ chunk 4 (fast 2) $ midinote "[[1 1]*2, [2 2 2]*2, 3(11,12)]" # s "fh"
+
+hush

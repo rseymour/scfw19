@@ -1,0 +1,57 @@
+bpm 106
+
+d1 
+-- $ jux (chunk 2 (hurry 2)) 
+$ s "[[50bd 50bd/4] ~ 50bd/2 ~, ~ 50sd ~ 50sd/4]" 
+
+d1 
+$ jux (chunk 2 (hurry 2)) 
+$ s "[[50bd 50bd/4] ~ [50bd 50bd/2] ~, ~ 50sd ~ 50sd]" 
+
+d1 
+-- $ jux (chunk 2 (hurry 2)) 
+$ s "50bd [~ 50bd] 50sd [50sd/8 50sd/2]" 
+
+d2 
+-- $ chunk 4 (fast 2) 
+-- $ chunk 4 (hurry 2) 
+$ swing (1/3)
+$ s "[05cr/16 [~ 50ch] [~ 50oh/4] [~ 50ch]]" 
+# gain 1.01
+
+
+d3 $ n "[c'maj c'maj f'maj f'maj]/4" # s "superpiano" -- basic intro
+
+d3
+$ jux (arp "updown downup" . chop 2 )
+$ slow 2 $ cat [
+n "[c'maj f'maj]",
+n "[c'maj f'maj]",
+n "[c'maj f'maj]",
+n "[a'min f'maj]"
+]
+# s "superpiano" -- verse
+# delay 0.3 # delayfb 0.3
+
+d3 $ chop 4
+$ slow 2 
+$ cat [
+n "[c'maj f'maj]",
+n "[c'maj a'min]",
+n "[c'maj f'maj]",
+n "[c'maj a'min]"
+]
+# s "superpiano" -- chorus
+# delay 0.125 # delayfb 0.3
+
+d3
+$ chop 4 
+$ slow 2 $ cat [
+n "[c'maj f'maj]",
+n "[c'maj f'maj]",
+n "[c'maj f'maj]",
+n "[a'min f'maj]"
+]
+# s "superpiano" -- verse
+
+hush

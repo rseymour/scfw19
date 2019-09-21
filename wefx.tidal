@@ -2,7 +2,7 @@ bpm 98
 
 d2 $ s "05bd 50sd ~ <05sd 50sd>*<1 1 1 2>" # gain 0.8 # room 0.1
 
-d3 $ sometimes (chop 4) $ slow 2 $ n "g2 g3 [g3 g3*2] g2" # s "supersaw" # attack 0.2 # decay 0.4 # release 0.7 # gain 0.7 # room 0.14
+d3 $ sometimes (chop 8) $ slow 2 $ n "g2 g3 [g3 g3*2] g2" # s "supersaw" # attack 0.2 # decay 0.4 # release 0.7 # gain 0.5 # room 0.24
 
 d1 $ silence
 

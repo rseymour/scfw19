@@ -1,0 +1,21 @@
+bpm 120
+
+
+d1 $ arp "<updown down>" 
+$  slow 2 $ cat [n "a3'maj'7 cs4", n "~ ~ ~ ~ ~ ~ ~ cs5", n "d3'maj7'7 b4", n "~ ~ ~ b3", n "c3'min7'7 f3", n "~ ~ ~ ~ ~ f4", n "f3'dom7'7 bf3", n "~ ~ ~ ~ ~ ~ ~ bf3"] 
+# s "superhammond" # gain "1 0 1 0 1 1 1" 
+
+d4 $ (0.113 ~>)  $ arp "<updown down>" 
+$ slow 2 $ chop 2 $ cat [n "a3'maj'7 cs4", n "~ ~ ~ cs4", n "d3'maj7'7 b3", n "",n "c3'min7'7 f3", n "",n "f3'dom7'7 bf3", n "~ ~ ~ ~ ~ ~ ~ bf3"] 
+# s "superpiano" # gain "1 0 1 0 1 1 1"  |+ n "12" 
+
+d3 $ s "{50bd 50sd 50bd*<2 1 2> 50sd*<1 2>, [~ 50ch*<1 1 2 0>]}" # shape 0.1
+
+d2 $  slow 4 $ chop 4 $ sometimes (|+ n "<12>") $ cat [n "a2", n "d2", n "c3", n "f2"] # s "superpwm"
+# decay 0.3 # sustain 1.0 # release 1.8 # gain "1 1 1 1 1 1 1" # shape 0.3
+
+once $ s "future" # shape 0.7
+
+hush
+
+d2 $ silence

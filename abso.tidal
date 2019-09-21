@@ -1,0 +1,68 @@
+bpm 85 
+
+d1 $ jux (brak) 
+$ sometimes (chunk 8 (hurry 2))
+$ stack [
+"50bd 50bd",
+" ~ 50sd ~ 50sd",
+"50ch*8"]
+# room 0.7
+# gain 1.2
+
+d2 
+$ chunk 4 (hurry 2) 
+$ fast 1 
+$ arp "<up down up up>" 
+$ n "<b'min7 d'maj7 b'min7 d'maj2>" 
+# s "supersquare" 
+# gain 0.8 
+# sustain 0.25
+
+d4 $ jux (rev . chop 2) 
+$ chunk 6 (hurry 2) 
+$ n "b4 b5 ~ [d4 fs6 [fs5 ~]]" 
+# s "superpiano"
+# delay 0.257
+# delayfb 0.2
+
+d3 $ n "<[b3*3 b4] [d4*3 d3] [[b3 b3 ~] b4] [d3 d4]>" 
+# s "supersquare"
+
+d2 $ silence
+
+
+do
+  d2 
+    $ chunk 8 (hurry 2) 
+    $ fast 1 
+    $ arp "<up down down down>" 
+    $ n "<b'min7 e'min7 b'min7 e'min9>" 
+    # s "supersquare" 
+    # gain 0.8 
+    # sustain 0.25
+  d4 $ jux (rev . chop 2) 
+    $ chunk 6 (fast 2) 
+    $ n "b4 b5 ~ [e4 fs6 [~ e5]]" 
+    # s "superpiano"
+  d3 $ n "<[b3*3 b4] [e4*3 d5] [[b3 b3 ~] b4] [e3 e4]>" 
+    # s "supersquare"
+
+do
+  d2 
+    $ chunk 4 (hurry 2) 
+    $ fast 1 
+    $ arp "<up down up up>" 
+    $ n "<b'min7 d'maj7 b'min7 d'maj2>" 
+    # s "supersquare" 
+    # gain 0.8 
+    # sustain 0.25
+  d4 $ jux (rev . chop 2) 
+    $ chunk 6 (hurry 2) 
+    $ n "b4 b5 ~ [d4 fs6 [fs5 ~]]" 
+    # s "superpiano"
+  d3 $ n "<[b3*3 b4] [d4*3 d3] [[b3 b3 ~] b4] [d3 d4]>" 
+    # s "supersquare"
+
+xfadeIn 1 2 $ silence 
+
+hush

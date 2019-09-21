@@ -1,0 +1,50 @@
+
+d1 $ n (scale "harmonicMinor" "0..7") # s "dx"
+
+
+--rhodes cart3 or cart4
+d1 $ chunk 4 (rev) 
+$ chunk 8 (slow 2 . (|- n 12)) 
+$ off 0.25 (|+ 12) 
+$ struct (iter 4 "t(2,57,2)?") 
+$ n (scale "aeolian" "0..8") # s "dx"
+
+d2 $ chunk 4 (rev) 
+$ chunk 4 (slow 3 . (|+ n 12)) 
+$ off 0.25 (|+ 12) 
+$ struct (iter 4 "t(2,43,1)?") 
+$ n (scale "aeolian" "-5..3") # s "dx" # gain 0.6
+
+do 
+  d2 $ silence
+  d1 $ silence
+
+  d6 $ silence
+
+jumpIn 4 3 $ slow 2 $ "{50bd 50cp [50bd 50bd] [05cp ~ ~ 50bd?]}"
+
+d3 $ slow 2 $ "{50bd [50rs 50rs?]*4 [50bd 50bd] [~ ~ ~ 50bd?]}"
+
+d4 $ slow 2 $ "~ [50ch [<~ 50oh>]]*2" # cut "8"
+
+d5
+$ every 2 (slow 2)
+$ chunk 4 (fast 4 . (|+ n 12)) 
+$ slow 2 $ cat [ n "c5 c4 g4 ~", n "c5 c4 g4 c4", n "c5 c4 ef5 c4", n "c4 ~ c4 ~"] 
+# s "supersquare" # cutoff 590 # resonance 0.07 # gain 0.75 # room 0.1
+
+d6 $ slow 8 $ "05cp(2,16)" # orbit 2 # delayfb 0.4 # delayt 0.1111 # delay 0.9 # gain 0.7
+
+d5 $ silence
+
+d1 $ chunk 4 (rev) 
+$ chunk 8 (fast 2 . (|- n 12)) 
+$ off 0.25 (|+ 12) 
+$ struct (iter 4 "t(5,7)?") 
+$ n (scale "aeolian" "0..8") # s "dx"
+
+d2 $ chunk 4 (rev) 
+$ chunk 8 (fast 2 . (|- n 12)) 
+$ off 0.25 (|+ 12) 
+$ struct (iter 4 "t(3,5)?") 
+$ n (scale "aeolian" "5..13") # s "dx" # gain 0.6

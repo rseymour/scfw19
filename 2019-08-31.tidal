@@ -1,0 +1,9 @@
+bpm 124
+
+d1 $ chunk 8 (hurry 2 . (# gain 0.8)) $ s "[50bd 50bd] 50sd*2 50bd*2 50sd*2"
+
+
+d2 $ s "[50ch/4 ~ ~ 50oh]*2"  # gain 0.8
+
+hush
+
