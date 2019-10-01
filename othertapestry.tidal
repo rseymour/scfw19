@@ -1,0 +1,60 @@
+d1
+$ every 3 (|+ n "<12>")
+$ chunk 2 (jux $ hurry 2 . rev)
+$ mask "t(4,6)"
+$ chop 2
+$ arp "updown"
+$ n "<a4 g4 d4>'maj7'5/4"
+# s "dx"
+
+d3
+$ every 3 (|+ n "<12>")
+-- $ chunk 2 (jux $ hurry 2 . rev)
+$ mask "t(<3 3 9 11>,12,<0 0 1 2>)"
+$ chop 2
+$ arp "converge"
+$ n "<a5 g5 d5>'maj7'9/4"
+# s "dx"
+
+d2 $ s "[50bd(<2 3>,8,<0 2 0 1>), 50sd(2,8,2)]"
+
+d2 $ s "[50bd(<0 1>,8,<0 2 0 1>), 50sd(2,8,2)]"
+
+d4 $ s "50ch(<13 9 14>,16,<0 1 2 3 4>)"
+
+d2 $ midinote "1 1 1 1" # s "fh"
+
+d3 $ midinote " ~ 2 [~ [2 2]]" # s "fh"
+
+hush
+
+d4
+$ every 3 (|+ n "<-12>")
+$ chunk 2 (jux $ hurry 2 . rev)
+$ chop 2
+$ arp "updown"
+$ n "<a3 g3 d3>'maj7'5/4"
+# s "dx"
+# attack 0.1
+# release 0.3
+# cutoff (slow 3 $ range 440 1300 tri)
+
+d1 $ silence
+
+d1
+$ every 3 (|+ n "<12>")
+$ chunk 2 (jux $ hurry 2 . rev)
+$ mask "t(4,6)"
+$ chop 2
+$ arp "updown"
+$ n "<e4 d4 a4>'maj7'8/4"
+# s "dx"
+
+d3
+$ every 3 (|+ n "<12>")
+-- $ chunk 2 (jux $ hurry 2 . rev)
+$ mask "t(<3 3 9 11>,12,<0 0 1 2>)"
+$ chop 3
+$ arp "converge"
+$ n "<e5 d5 a5>'maj7'4/4"
+# s "dx"

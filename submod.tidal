@@ -26,9 +26,13 @@ $ stack [ midinote "[~ [~ 3] [~ 3/4] [~ 3]]",
 
 d1 $ silence
 
-d3 $ n "[c'maj c'maj f'maj f'maj]/4" # s "superpiano" -- basic intro
+d4 $ silence
 
-d5 $ arp "up" $ n "[c1 c1 f1 f1]/4" # s "fh" # midichan 0 -- basic intro
+d4 $ n "[c'maj c'maj f'maj f'maj]/4" # s "superpiano" -- basic intro
+
+d3 $ n "[c5'maj c5'maj f5'maj f5'maj]/4" # s "dx" -- basic intro
+
+d5 $ arp "up" $ n "[c3 c3 f3 f3]/4" # s "dx"
 
 do
   d3
@@ -41,16 +45,19 @@ do
     n "[c'maj f'maj]",
     n "[a'min f'maj]"
     ]
-    # s "fh" -- verse
+    # s "dx" -- verse
   d4
     $ chop 2
     $ slow 2 $ cat [
-    n "[c1 f1]",
-    n "[c1 f1]",
-    n "[c1 f1]",
-    n "[a1 [f2 c2 e2/2 f1]]"
+    n "[c2 f2]",
+    n "[c2 f2]",
+    n "[c2 f2]",
+    n "[a2 [f3 c3 e3/2 f2]]"
     ]
-    # s "fh" 
+    # s "dx" 
+
+d5 $ silence
+
     # midichan 1 -- verse
 
 do
@@ -63,17 +70,17 @@ do
     n "[c'maj'2 f'maj'4]",
     n "[c'maj'4 a'min'8]"
     ]
-    # s "fh" -- chorus
+    # s "dx" -- chorus
   d4
     $ chop 2
     $ slow 2 $ cat [
-    n "[c1 f1]",
-    n "[c1 a1]",
-    n "[c1 f1]",
-    n "[a1 [a2 c2 e2 a3]]"
+    n "[c2 f2]",
+    n "[c2 a2]",
+    n "[c2 f2]",
+    n "[a2 [a3 c3 e3 a4]]"
     ]
-    # s "fh" 
-    # midichan 1 -- chorus
+    # s "dx" 
+    
   d2 
     -- $ every 4 (fast 2) 
     $ chunk 4 (fast 2) 

@@ -1,10 +1,10 @@
 bpm 98
 
-d2 $ s "05bd 50sd ~ <05sd 50sd>*<1 1 1 2>" # gain 0.8 # room 0.1
+d2 $ s "05bd 50sd ~ <05sd 50sd>*<1 1 1 2>" # gain 1.0 # room 0.1
 
 d3 $ sometimes (chop 8) $ slow 2 $ n "g2 g3 [g3 g3*2] g2" # s "supersaw" # attack 0.2 # decay 0.4 # release 0.7 # gain 0.5 # room 0.24
 
-d1 $ silence
+d3 $ silence
 
 d1 $ juxBy 0.6 (|* speed "2") $ loopAt "<4 6 2 3>" $ loopAt 2 $ slice 8 (run 8) $ chop 2 $ s "wefx:2" # cut "2"
 
@@ -12,19 +12,24 @@ d1 $ loopAt 1 $ bite 2 "0 0" $ chop 2 $ s "wefx" -- doubletime lol
 
 d1 $ loopAt 2 $ bite 2 "0 0" $ chop 2 $ s "wefx"
 
-d1 $ loopAt 2 $  chop 64 $ s "wefx"
+d3 $ loopAt 2 $ slice 8 (run 4) $ chop 8 $ s "wefx"
 
-d1 $ loopAt 2 $ chop 8 $ s "wefx:1"
+d1 $ loopAt 2 $ chop 64 $ s "wefx"
+
+d1 $ loopAt 2 $ every 8 (shuffle 4) $ s "wefx:1"
 
 :t loopAt
 
 do
   d1 $ loopAt 2 $ chew 4 "<[0 1] [0 0]> 1*<1 2 4> 3 2" $ chop 4 $ s "wefx:1"
-  d2 $ s "05bd 50sd ~ <05sd 50sd>*<1 1 1 2>" # gain 0.8 # room 0.1
+  d3 $ shuffle 4 $ n "g4 [g3 g4 g6] [g5 f5] ~" # s "dx"
+  d4 $ s "05bd 50sd ~ <05sd 50sd>*<1 1 1 2>" # gain 1.0 # room 0.1
 
 hush
 
-d4 $ shuffle 4 $ n "g4 [g3 g4 g6] [g5 f5] ~" # s "midi"
 
 :t shuffle
 
+d2 $ silence
+
+hush

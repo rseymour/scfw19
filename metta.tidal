@@ -1,0 +1,13 @@
+bpm 114
+
+d1 $ loopAt "<1 2 3>" $ chew 8 "<[1*2 3*4 ~ 4*4 ~ ~ ~ 2] [~ ~ ~ 0] [1 ~ 2 ~ ~ ~]>" $ chop 16 $ s "future" # cut "1" # gain 1.2
+
+d1 $ loopAt "<1 2 3>" $ bite 8 "<[1*2 3*4 ~ 4*4 ~ ~ ~ 2] [~ ~ ~ 0] [1 ~ 2 ~ ~ ~]>" $ chop 16 $ s "future" # cut "1" # gain 1.2
+
+d2 $ s "[50bd:2, ~ 50sd*<1 0 1 4> ~ 50sd*<2 1 0>]" 
+
+d3 $ slow 4 $ n "a5 ~ a5 e5" # "dx"
+
+d4 $ slow 2 $ n "a6*2 ~ a6*2 ~ e7*4" # "dx"
+
+d1 $ silence

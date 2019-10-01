@@ -1,24 +1,32 @@
 bpm 92.9
 
+bpm 95
+
 -- or
 
-d2 $ s "50bd [05rs 05rs*4] 50bd [05rs*2]"
+d3 $ s "50bd [05rs 05rs*4] 50bd [05rs*2]"
 
-d2 $  stack[ s "50bd 50sd 50bd [50sd, 50bd*2]", chunk 4 (fast 2) $ s "50ch(9,16)"] -- try lb hc etc
+d3 $  stack[ s "50bd 50sd 50bd [50sd, 50bd*2]", chunk 4 (hurry 2) $ s "<50ch 50hc 50ch 50hb/4>(<6 9>,16)"] -- try lb hc etc
+
+d4 $ silence
 
 -- nothin but puff and mc lyte
 
 d1 $ loopAt 4 $ chop 32 $ s "rtp4"
 
+xfadeIn 1 8 $ loopAt 4 $ chop 32 $ s "rtp4"
+
 d1 $ slice 4 "[0 1]*4" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1" -- plain
 
 d1  $ loopAt 4 $ slice 48 "1*16" $ chop 48 $ s "rtp4" # cut "1" -- cut diff
 
-d1 $ slice 32 "0 0 0 0*<2 4 8> 0 0 ~ 4*2" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1" -- no party
+d1 $ slice 32 "0 0 0 0*<2 4 8> 0 [~ ~] ~ 4*2" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1" -- no party
+
+d1 $ slice 32 "0 0 0 0*<2 4 8> 0 [~ 1] ~ 4*2" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1" -- no party
 
 d1 $ slice 4 "[0 1]*2" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1" -- cutoff
 
-d1 $ slice 8 "[0 1]*<4 8 4 16>" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1" -- cutoff
+d1 $ slice 8 "[0 1]*<4 8 4 16>" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1" -- hefty 
 
 d1 $ slice 8 "[0 1]*<4 8 4 8>" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1" -- cutoff
 
@@ -28,7 +36,13 @@ d1 $ slice 8 "<[0*2 1 2 7] [[0 ~] 1*2 2*4 2] [4*2 4 6*4 6] [0*2 2 2*4 3] >" $ lo
 
 -- mc lyte
 
-d1 $ loopAt 2 $ s "rtpl2"
+d1 $ loopAt 2 $ s "rtpl2" # cut "1"
+
+d1 $ loopAt 2 $ chew 128 "[32..0]*4" $ s "rtpl2" # cut "1"
+
+d1 $ loopAt 2 $ bite 4 "<[<0 1> <1 2> <2 3> <0 2/2 3>] [0 1*<2 4 8> 2 3]>" $ chop 4 $ s "rtpl2" # cut "1"
+
+d1 $ loopAt 2 $ bite 4 "<[<0 1> <1 2> <2 3> <0 2 3>] [0 1*<2 4 8> 2 3]>" $ chop 8 $ s "rtpl2" # cut "1"
 
 d1 $ loopAt 2 $ jux (# speed "-1") $ chop 8 $ s "rtpl2"
 
@@ -40,10 +54,36 @@ d1 $ loopAt 16 $ slice 32 "[0*2 0*2 3*2 2*4]*4" $ chop 16 $ s "rtpm16" # cut "1"
 
 d1 $ loopAt 16 $ slice 32 "[0*2 0*2 3*2 2*4]*4" $ chop 32 $ s "rtpm16" # cut "1"
 
-xfadeIn 2 4 $ silence
+d1 $ loopAt 16 $ slice 32 "[0*2 0*2 3*2 2*4]*4" $ chop 8 $ s "rtpm16" # cut "1"
+
+d1 $ bite 32 "[0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15] ~" $ loopAt 16 $ chop 16 $ s "rtpm16" # cut "1"
+
+xfadeIn 1 2 $ silence
 
 d1 $ sometimes rev $ slice 4 "[0 1]*4" $ loopAt 4 $ chop 32 $ s "rtp4" # cut "1"
 
 d1 $ silence
+
+d3 $
+mask "t(<9 13>,16, <0 2 4>)" $ chop "4 4 2 8" $
+every 3 (|+ n "24") $
+every 2 (|+ n "24") $
+slow 2 $ n "bf3 [bf4 af4/4]" # s "dx"
+
+d3 $
+mask "t(<5 7>,8, <0 2 4>)" $ chop "2 3 2 2" $
+every 3 (|+ n "24") $
+every 2 (|+ n "24") $
+slow 2 $ n "bf3 [bf4 af4/4]" # s "dx"
+
+d2 $
+mask "t(<5 7>,8)" $ chop "4 4 2 8" $
+every 3 (|+ n "12") $
+every 2 (|+ n "12") $
+slow 2 $ n "bf3 [bf4 af4/4]" # s "dx"
+
+d2 $ mask "t(5,8)" $ chop 4 $ slow 2 $ n "c5 ~ b5 ~ d5 ~ e5 ~" # s "dx"
+
+clutchIn 3 8 $ silence
 
 hush

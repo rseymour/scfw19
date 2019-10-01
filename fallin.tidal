@@ -4,11 +4,11 @@ xfadeIn 3 2 $ hurry 2 $ chunk 4 ((# speed "-1") . hurry 2) $ stack [ chop 4 $ s 
 
 d3 $ stack [s "808bd:1 808bd:1", "50ch(<7 5>,8)"] # room 0.1
 
-d3 $ stack [s "808bd:1 808bd:1", "50ch(<7 5>,8)", cat ["50cp*2 ~ ~ ~", "~ 50cp*<1 2> ~ ~"]] # room 0.2
+d3 $ stack [s "[50bd:1 05bd:2/2 ~ ~] 50bd:1", "50ch(<7 5>,8)", cat ["50cp*2 ~ ~ ~", "~ 50cp*<1 2> ~ ~"]] # room 0.08 # size 0.2 
 
 hush 
 
-1 2 $ loopAt 2 $ chop 32 $ s "fallin:0"
+xfadeIn 1 2 $ loopAt 2 $ chop 32 $ s "fallin:0"
 
 d1 $ loopAt 2 $ chop 32 $ s "fallin:1"
 
@@ -16,10 +16,13 @@ d1 $ loopAt 2
 $ chew 8 "<[0 1 [0 2]*2 [0 2]*2]*2 [0 2 0 2]*2 >" $ chop 32 $ s "fallin:1" 
 
 d1 $ loopAt 2 
-$ chew 8 "<[0 1 2*2 3 [4 5] 6 6 7] [0 1 2 3*2 [0 4] 5 6 7] [0 1 0 3*2 [0 4] [5 6] 7 7]>" $ chop 32 $ s "fallin:1"
+$ chew 8 "<[6 6 7 ~ 0 2*2 3 [4 5] ] [0 1 2 3*2 0/2 5*2 6 7] [0 1 0 3*2 [0 4] [5 6] 7 7]>" $ chop 32 $ s "fallin:3"
 
 d1 $ loopAt 2 
-$ chew 8 "<[6 6 7 0 0 2*2 3 [4 5] ] [0 1 2 3*2 0*2 5*2 6 7] [0 1 0 3*2 [0 4] [5 6] 7 7]>" $ chop 32 $ s "fallin:3"
+$ chew 8 "<[6 6 7 ~ 0 2*2 3 [4 5] ] [0 1 2 3*2 0/2 5*2 6 7] [0 1 0 3*2 [0 4] [5 6] 7 7]>" $ chop 32 $ s "fallin:3"
+
+d1 $ loopAt 2 
+$ chew 8 " [7 7 2 3 4 7 7 7] " $ chop 32 $ s "fallin:3"
 
 d1 $ loopAt 2 
 $ chew 8 "<[0 1 [0 2]*2 [0 2]*2]*2 [0 2 0 2]*2 >" $ chop 32 $ s "fallin:3" -- you played x2
@@ -40,6 +43,12 @@ d2 $ loopAt 2 $ chop 32 $ s "fallin:3"
 
 d2 $ silence
 
+d4 $ every 2 (|+ n "<12>") $ mask "t(3,8)" $ chop 4 $ slow 2 $ n "e4 a4 gf4 b4" # s "dx"
+
+d4 $ every 2 (|+ n "<12>") $ mask "t(3,8)" $ chop 2 $ slow 2 $ n "e4 a4 gf4 b4" # s "dx"
+
+d4 $ slow 2 $ n "e4 ~ a4 ~ gf4 ~ b4 ~ " # s "dx"
+
 xfadeIn
 
-
+hush
